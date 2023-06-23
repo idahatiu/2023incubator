@@ -1,0 +1,16 @@
+# Site navigation links
+
+- title: Our Community
+  url: /
+  excerpt:
+  image:
+
+- title: Our Collection
+  url: /collection
+  excerpt:
+  image:
+
+- title: Our Stories
+  url: /stories
+  excerpt:
+  image:
