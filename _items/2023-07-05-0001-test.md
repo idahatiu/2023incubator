@@ -1,4 +1,3 @@
-
 ---
 layout: item
 format: photo
