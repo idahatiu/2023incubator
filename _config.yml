@@ -72,6 +72,12 @@ instagram :
 google_g4_analytics_id: 
 
 ##############################################
+# TEMPVARS TO GO IN METADATA.YML
+#---------------------
+
+blankgroup: "Miscellaneous Items"
+
+##############################################
 # FONTS AND COLORS
 #---------------------
 
