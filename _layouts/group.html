@@ -45,13 +45,13 @@ Push blank array value to
 <div class="grid-container">
 	<div class="grid-x grid-padding-x grid-margin-x">
 
+<!--include _includes/itembox.html for each item in the groupname set-->
 <!--Set up groupname and featured-item arrays-->
 {% for itemtitle in FeaturedItems %}
 {% assign CurrentItem = site.items | where:'title', itemtitle %}
 {% assign item = CurrentItem[0] %}
 
 {% if item.group %}{% assign groupname = item.group %}{% assign groupselect = item.group %}{%else%}{% assign groupname = site.blankgroup %}{% assign groupselect = "blankgroup" %}{% endif %}
-<!--include itembox for each item in the groupname start-->
 {% include _itembox.html %}
 {% endfor %}
 <!--itembox end-->
