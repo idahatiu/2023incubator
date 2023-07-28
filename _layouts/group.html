@@ -15,18 +15,16 @@ Pop first array value (blank) off of array
 Push blank array value to 
 -->
 
-<!--Loop through unique group tags-->
+<!--Line 22/35: Loop through unique group tags-->
+<!--Line 23/34: Get the list of possible Featured Items-->
+<!--Line 24-27: If there are no Featured Items, add the title of the first item, alphanumeric, to the featured item list-->
+<!--Line 28-33: If there is a Featured Item, add its title to the featured item list-->
 {% for groupname in grouplist %}
-<!--Get possible Featured Items-->
 	{% assign GroupFeaturePossibilities = site.items | where:'featureditem', groupname %}
-<!--If there are no Featured Items, add the title of the first item, alphanumeric, to the featured item list-->
 	{% if GroupFeaturePossibilities.size < 1 %}
-
 		{% assign GroupFeatureItem = site.items | where:'group', groupname %}
 		{% if FeaturedItems contains GroupFeatureItem[0].title %}{% else %}{% assign FeaturedItems = FeaturedItems | push: GroupFeatureItem[0].title %}
 		{% endif %}
-
-<!--If there is a Featured Item, add its title to the featured item list-->
 	{% else %}
 		{% assign GroupFeatureItem = GroupFeaturePossibilities | first %}
 		{% for item in GroupFeatureItem %}
@@ -36,31 +34,27 @@ Push blank array value to
 	{% endif %}
 {% endfor %}
 
-
 	<div class="large-12 cell">
-		<!--description start-->
+		<!--main content start-->
 
 		{{ content }}
 
-		<!--description end-->
+		<!--main content end-->
 	</div>
 </div>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x grid-margin-x">
 
 <!--Set up groupname and featured-item arrays-->
-
 {% for itemtitle in FeaturedItems %}
 {% assign CurrentItem = site.items | where:'title', itemtitle %}
 {% assign item = CurrentItem[0] %}
 
 {% if item.group %}{% assign groupname = item.group %}{% assign groupselect = item.group %}{%else%}{% assign groupname = site.blankgroup %}{% assign groupselect = "blankgroup" %}{% endif %}
-
 <!--include itembox for each item in the groupname start-->
 {% include _itembox.html %}
-<!--itembox end-->
-
 {% endfor %}
+<!--itembox end-->
 
 		</div>
 	</div>
