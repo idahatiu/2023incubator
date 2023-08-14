@@ -1,3 +1,8 @@
+<!-- DEV NOTES:
+This multi-filtering system currently uses the 'type' and 'category' fields.
+See lines 85-90ish for changing the 'and' 'or' logic of the filters
+Chance which property is accessed & used in the filters in lines 13-18 & 20-25. -->
+
 <!-- DEFINE CATLIST -->
 {% assign allCats = "" | split: ',' %}
 {% assign allFormats = "" | split: ',' %}
@@ -65,7 +70,7 @@
 
         const selectedFormats = Array.from(filterCheckboxes)
             .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.dataset.format); // Use dataset.format instead of dataset.category
+            .map(checkbox => checkbox.dataset.format);
 
         itemCards.forEach(card => {
             const itemCategories = card.dataset.categories.split(',');
@@ -77,6 +82,7 @@
 
             const isPerson = selectedFormats.some(format => itemFormats.includes('person'));
 
+            // WANT TO CHANGE HOW THE FILTERS INTERACT? (I.E. AND vs OR) CHANGE THE LINE BELOW
             if ((showCat || showForm || showAll)) {
                 card.style.display = "block";
             } else {
