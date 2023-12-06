@@ -42,10 +42,10 @@ repository: 'idahatiu/idahatiu.github.io' # change this to your repository name
 #---------------------
 
 # Title of your website
-title: "IDAH@IU"
+title: "Test"
 
 # Subtitle of your website. Leave blank if you want to.
-subtitle: "An Archive of Our Community's Heirlooms"
+subtitle: "Test"
 
 # A longer description of your site (max 150 words). Helps search engines find you.
 description: "Community Archiving Site"
